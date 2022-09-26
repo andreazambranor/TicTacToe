@@ -65,10 +65,10 @@ function checkWinConditions() {
     }
     function arrayIncludes(squareA,squareB,squareC) //CHECK IF INCLUDE 3 STRINGS FOR WIN CONDITION
     //CHECK 3 IN A ROW
-    const a=selectedSquares.includes(squareA);
-    const b=selectedSquares.includes(squareB);
-    const c=selectedSquares.includes(squareC);// IF 3 VARIABLES ARE INCLUDED IN ARRAY, RETURN TRUE AND ELSE IF CONDITION EXECUTE DRAWWINLINE FUNCTION
-    if (a===true && b===true && c===true) {return true;}
+    const a = selectedSquares.includes(squareA);
+    const b = selectedSquares.includes(squareB);
+    const c = selectedSquares.includes(squareC);
+    if (a===true && b===true && c===true) {return true; }
 }
 
 //THIS MAKES BODY ELEMENT TEMPORARILY UNCLICKABLE
@@ -119,7 +119,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         cancelAnimationFrame(animationLoop);
     }
     disableCick();
-    audio('media/winGame.mp30');
+    audio('media/winGame.mp3');
     animateLineDrawing();
     setTimeout(function() {clear();resetGame();}, 1000);
 }
