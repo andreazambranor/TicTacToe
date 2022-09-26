@@ -63,12 +63,13 @@ function checkWinConditions() {
         Audio('.media/tie.mp3'); //FUNCTION PLAY TIE SOUND
         setTimeout(function (){resetGame();},1000);
     }
-    function arrayIncludes(squareA,squareB,squareC) //CHECK IF INCLUDE 3 STRINGS FOR WIN CONDITION
+    function arrayIncludes(squareA,squareB,squareC) {//CHECK IF INCLUDE 3 STRINGS FOR WIN CONDITION
     //CHECK 3 IN A ROW
     const a = selectedSquares.includes(squareA);
     const b = selectedSquares.includes(squareB);
     const c = selectedSquares.includes(squareC);
     if (a===true && b===true && c===true) {return true; }
+    }
 }
 
 //THIS MAKES BODY ELEMENT TEMPORARILY UNCLICKABLE
@@ -113,6 +114,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         }
     }
 
+
     function clear() {
         const animationLoop=requestAnimationFrame(clear);
         c.clearRect(0, 0, 608, 608);
@@ -121,7 +123,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
     disableCick();
     audio('media/winGame.mp3');
     animateLineDrawing();
-    setTimeout(function() {clear();resetGame();}, 1000);
+    setTimeout(function() {clear();resetGame(); } , 1000);
 }
 
 function resetGame() {
