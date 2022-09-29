@@ -22,7 +22,7 @@ function placeXorO(squareNumber) {//ENSURE SQUARE HASNT BEEN SELECTED ALREADY
         audio('media/place.mp3');//FUNCTION PLAY PLACEMENT SOUND
         if(activePlayer==='O') {//CONDITION CHECK IF COMPUTER TURN
             disableCick();//DISABLE CLICK FOR COMPUTER TURN
-            setTimeout(function (){computersTurn();}, 1000);//FUNCTION WAIT 1 SEC, PLACE BACKGOTUND IMAGE AND ENABLE CLICK
+            setTimeout(function (){ computersTurn() ; }, 1000);//FUNCTION WAIT 1 SEC, PLACE BACKGOTUND IMAGE AND ENABLE CLICK
         }
         return true; //NEEDED FOR COMPUTERSTURN FUNCTION
     }
@@ -30,10 +30,10 @@ function placeXorO(squareNumber) {//ENSURE SQUARE HASNT BEEN SELECTED ALREADY
         let success=false; //BOOLEAN NEEDED FOR WHILE LOOP
         let pickASquare; //SLELECT RANDOM NUMBER 0-8
         while(!success) {//ALLOW WHILE LOOPTO KEEPTRYING IF A SQUARE IS SELECTED
-            pickASquare=Stirng(Math.floor(Math.random()*9));//RANDOM NUMBER 0-8 IS SELECTED
+            pickASquare= String(Math.floor(Math.random() *9));//RANDOM NUMBER 0-8 IS SELECTED
             if (placeXorO(pickASquare)) { //IF RETURN TRUE THE SQUARE HASNT BEEN SELECTED
                 placeXorO(pickASquare); //LINE CALL FUNCTION
-                success=true;//CHANGE BOOLEAN CND END LOOP
+                success = true;//CHANGE BOOLEAN CND END LOOP
             };
         }
     }
@@ -60,7 +60,7 @@ function checkWinConditions() {
     else if (arrayIncludes('0O', '4O', '8O')){drawWinLine(100, 100, 520, 520);}
     //CONDITION CHECKS FOR TIES, IF 9 SQUARES SELECTED
     else if (selectedSquares.length >=9) {
-        Audio('.media/tie.mp3'); //FUNCTION PLAY TIE SOUND
+        audio('media/tie.mp3'); //FUNCTION PLAY TIE SOUND
         setTimeout(function (){resetGame();},1000);
     }
     function arrayIncludes(squareA,squareB,squareC) {//CHECK IF INCLUDE 3 STRINGS FOR WIN CONDITION
@@ -107,7 +107,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
             if(y<y2) {y+=10;}
             if (x>=x2 && y>=y2) {cancelAnimationFrame(animationLoop);}
         }
-        if (x1<=x2 && y1>=y23) {
+        if (x1<=x2 && y1>=y2) {
             if(x<x2) {x+=10;}
             if(y>y2) {y-=10;}
             if(x>=x2 && y<=y2) {cancelAnimationFrame(animationLoop);}
